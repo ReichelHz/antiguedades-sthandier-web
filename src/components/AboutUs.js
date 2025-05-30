@@ -5,9 +5,8 @@ function AboutUs() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const textoFijo = `En Antigüedades Sthandier nos especializamos en ofrecer piezas únicas con valor histórico, decorativo y emocional. 
-Desde 1985, hemos cultivado una profunda pasión por la historia y los objetos que la representan. Nuestra misión es rescatar, conservar y dar nueva vida a artículos antiguos, 
-permitiendo que formen parte de nuevos hogares y nuevas historias.`;
+  const textoFijo = `En Antigüedades Sthandier nos especializamos en ofrecer piezas únicas con valor histórico, 
+Desde 1985.`;
 
   useEffect(() => {
     fetch('https://www.clinicatecnologica.cl/ipss/antiguedadesSthandier/api/v1/about-us/', {
@@ -21,16 +20,15 @@ permitiendo que formen parte de nuevos hogares y nuevas historias.`;
       })
       .then(data => {
         console.log('Respuesta API about:', data);
-        if (
-          data &&
-          data.data &&
-          data.data.data &&
-          typeof data.data.data.description === 'string'
-        ) {
-          setAbout(data.data.data.description);
+        console.log('Estructura completa:', JSON.stringify(data, null, 2));
+
+        if (typeof data.data === 'string') {
+          setAbout(data.data);
         } else {
+          console.warn('No se encontró una descripción válida en la API.');
           setAbout(null);
         }
+
         setLoading(false);
       })
       .catch(err => {
