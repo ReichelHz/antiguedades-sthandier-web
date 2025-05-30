@@ -1,0 +1,215 @@
+/* --- Estilos generales --- */
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 50;
+  background: transparent;
+  transition: background-color 0.3s, backdrop-filter 0.3s;
+}
+
+/* Fondo gris borroso al hacer scroll */
+.header.scrolled {
+  background-color: rgba(83, 86, 91, 0.6);
+  backdrop-filter: blur(8px);
+}
+
+/* Contenedor central del header */
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+}
+
+/* Logo container */
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Logo */
+.logo {
+  height: 44px;
+}
+
+/* Texto */
+.antiguedades,
+.sthandier {
+   font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  text-decoration: none;
+  vertical-align: middle;
+  word-spacing: 0;
+  display: inline-block;
+  text-align: left;
+}
+
+.antiguedades {
+  color: white;
+}
+
+.sthandier {
+  color: #f4a9c0;
+}
+
+/* --- Navegación escritorio --- */
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  margin-left: 20px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 80px;
+  word-spacing: 0;
+  transition: color 0.3s;
+}
+
+.nav-link:hover {
+  color: #f4a9c0;
+}
+
+/* --- Botón menú hamburguesa - oculto en escritorio --- */
+.menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  margin-right: 10px;
+}
+
+/* Icono hamburguesa */
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+  width: 20px;
+  height: 2px;
+  background-color: black;
+  display: block;
+  border-radius: 2px;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+}
+
+.hamburger::before,
+.hamburger::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+
+.hamburger::before {
+  top: -6px;
+}
+
+.hamburger::after {
+  top: 6px;
+}
+
+.hamburger.active {
+  background-color: transparent;
+}
+
+.hamburger.active::before {
+  transform: rotate(45deg);
+  top: 0;
+}
+
+.hamburger.active::after {
+  transform: rotate(-45deg);
+  top: 0;
+}
+
+/* --- Responsive móvil --- */
+@media (max-width: 768px) {
+  .header-container {
+    padding: 0 16px;
+  }
+
+  .logo-container h1 {
+    font-size: 18px;
+    white-space: nowrap;
+    margin: 0;
+  }
+
+  .logo-container h1 .antiguedades,
+  .logo-container h1 .sthandier {
+    font-size: 18px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 250px;
+    background-color: rgba(8, 0, 0, 0.813);
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 80px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 15;
+    display: flex;
+  }
+
+  .nav.open {
+    transform: translateX(0);
+  }
+
+  .nav-list {
+    flex-direction: column;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .nav-item {
+    width: 100%;
+    margin: 0;
+  }
+
+  .nav-link {
+    display: block;
+    width: 100%;
+    padding: 16px 20px;
+    color: white;
+    font-size: 16px;
+    text-align: left;
+    text-decoration: none;
+  }
+
+  .nav-link:hover {
+    color: #f4a9c0;
+  }
+}

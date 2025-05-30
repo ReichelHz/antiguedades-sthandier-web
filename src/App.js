@@ -1,23 +1,27 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import Header from './components/Header';
+import Banner from './components/Banner';
+import ProductsServices from './components/ProductsServices';
+import AboutUs from './components/AboutUs';
+import ContactForm from './components/ContactForm';
+import Faq from './components/Faq';
+import Footer from './components/Footer';
 import './App.css';
 
 function App() {
+  const [selectedProduct, setSelectedProduct] = useState('');
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Header />
+      <Banner />
+      <main>
+        <ProductsServices onSelectProduct={setSelectedProduct} />
+        <AboutUs />
+        <Faq />
+        <ContactForm selectedProduct={selectedProduct} />
+      </main>
+      <Footer />
     </div>
   );
 }

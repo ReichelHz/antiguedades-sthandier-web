@@ -1,0 +1,72 @@
+.contact-form-container {
+  padding: 2rem;
+  background-color: #f8f1f1;
+  border-radius: 10px;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center; /* Asegura que todo texto dentro esté centrado */
+}
+
+.contact-form h2 {
+  color: #6a4c3b;
+  margin-bottom: 1.5rem;
+  /* text-align centrado para el h2 */
+  text-align: center;
+}
+
+/* Inputs, textarea y select */
+.contact-form input,
+.contact-form textarea,
+.contact-form select {
+  width: 100%;
+  padding: 0.8rem;
+  margin-top: 0.3rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  box-sizing: border-box;
+}
+
+/* Botón centrado */
+.contact-form button {
+  background-color: #b88c7d;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  display: block;
+  margin: 2rem auto 0 auto;
+  width: 150px;
+  text-align: center;
+}
+
+.contact-form button:hover {
+  background-color: #a37565;
+}
+
+/* Captcha container con texto y checkbox, checkbox a la derecha */
+.captcha-container {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+/* Checkbox alineado a la derecha */
+.captcha-container label {
+  order: 1; /* texto primero */
+  user-select: none;
+  font-size: 1rem;
+  color: #333;
+}
+
+.captcha-container input[type="checkbox"] {
+  order: 2; /* checkbox después */
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
