@@ -34,15 +34,31 @@
   gap: 8px;
 }
 
-/* Logo */
-.logo {
+/* Logo clickeable */
+.logo-clickable {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.logo-clickable .logo {
   height: 44px;
+  width: auto;
+}
+
+.logo-clickable h1 {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 
 /* Texto */
 .antiguedades,
 .sthandier {
-   font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 600;
   font-size: 20px;
   line-height: 24px;

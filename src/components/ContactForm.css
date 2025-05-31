@@ -1,35 +1,65 @@
+/* Fondo general de la sección */
+.contact-form-wrapper {
+  background-color: #ececec; /* beige claro */
+  padding: 2rem 0;
+}
+
+/* Cuadro del formulario */
 .contact-form-container {
   padding: 2rem;
-  background-color: #f8f1f1;
+  background-color: #ffffff;
   border-radius: 10px;
   max-width: 600px;
   margin: 0 auto;
-  text-align: center; /* Asegura que todo texto dentro esté centrado */
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
-.contact-form h2 {
-  color: #6a4c3b;
+.contact-form-container h2 {
+  color: #000000;
   margin-bottom: 1.5rem;
-  /* text-align centrado para el h2 */
   text-align: center;
 }
 
-/* Inputs, textarea y select */
+.contact-form label {
+  display: block;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  color: #333;
+  text-align: left;
+  line-height: 1.4;
+  font-size: 1.15rem;
+}
+.contact-form button {
+  box-shadow: 0 2px 6px rgba(244, 169, 192, 0.6);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #d87c8e;
+  box-shadow: 0 4px 12px rgba(216, 124, 142, 0.8);
+}
+
 .contact-form input,
 .contact-form textarea,
 .contact-form select {
   width: 100%;
   padding: 0.8rem;
-  margin-top: 0.3rem;
+  margin-top: 0.6rem;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 6px;
   font-size: 1.1rem;
   box-sizing: border-box;
+   transition: box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-/* Botón centrado */
+.contact-form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
 .contact-form button {
-  background-color: #b88c7d;
+  background-color: #F4A9C0;
   color: white;
   padding: 0.8rem 1.5rem;
   border: none;
@@ -43,30 +73,54 @@
 }
 
 .contact-form button:hover {
-  background-color: #a37565;
+  background-color: #d87c8e;
 }
 
-/* Captcha container con texto y checkbox, checkbox a la derecha */
+/* CAPTCHA */
 .captcha-container {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 0.5rem;
   margin-top: 1rem;
   cursor: pointer;
+  text-align: left;
 }
 
-/* Checkbox alineado a la derecha */
 .captcha-container label {
-  order: 1; /* texto primero */
-  user-select: none;
+  margin: 0;
   font-size: 1rem;
-  color: #333;
+  color: #000000;
 }
 
 .captcha-container input[type="checkbox"] {
-  order: 2; /* checkbox después */
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
+  margin: 0;
   cursor: pointer;
+}
+/* --- RESPONSIVE --- */
+@media (max-width: 650px) {
+  .contact-form-container {
+    padding: 1.2rem;
+    max-width: 90%;
+    min-height: auto;
+  }
+
+  .contact-form label {
+    font-size: 1rem;
+  }
+
+  .contact-form input,
+  .contact-form textarea,
+  .contact-form select {
+    font-size: 1rem;
+    padding: 0.7rem;
+  }
+
+  .contact-form button {
+    width: 100%;
+    padding: 1rem 0;
+    font-size: 1.1rem;
+  }
 }

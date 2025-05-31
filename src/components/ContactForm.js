@@ -41,79 +41,82 @@ function ContactForm({ selectedProduct, products }) {
     setFormData({
       nombre: '',
       email: '',
-      producto: formData.producto, // Mantener producto seleccionado
+      producto: formData.producto,
       mensaje: '',
       captcha: false,
     });
   };
 
   return (
-    <div className="contact-form-container" id="contacto">
-      <h2>Contáctanos</h2>
-      <form onSubmit={handleSubmit} className="contact-form">
-        <label>
-          Nombre:
-          <input
-            type="text"
-            name="nombre"
-            value={formData.nombre}
-            onChange={handleChange}
-            required
-          />
-        </label>
+    <div className="contact-form-wrapper" id="contacto">
+      <div className="contact-form-container">
+        <h2>Contáctanos</h2>
+        <form onSubmit={handleSubmit} className="contact-form">
+          <label>
+            Nombre:
+            <input
+              type="text"
+              name="nombre"
+              value={formData.nombre}
+              onChange={handleChange}
+              required
+            />
+          </label>
 
-        <label>
-          Correo electrónico:
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
-        </label>
+          <label>
+            Correo electrónico:
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
+          </label>
 
-        <label>
-          Producto:
-          <select
-            name="producto"
-            value={formData.producto}
-            onChange={handleChange}
-            required
-          >
-            <option value="">-- Selecciona un producto --</option>
-            {products && products.length > 0 && products.map(prod => (
-              <option key={prod.id} value={prod.nombre}>
-                {prod.nombre}
-              </option>
-            ))}
-          </select>
-        </label>
+          <label>
+            Producto:
+            <select
+              name="producto"
+              value={formData.producto}
+              onChange={handleChange}
+              required
+            >
+              <option value="">-- Selecciona un producto --</option>
+              {products?.map(prod => (
+                <option key={prod.id} value={prod.nombre}>
+                  {prod.nombre}
+                </option>
+              ))}
+              <option value="Otros">Otros</option>
+            </select>
+          </label>
 
-        <label>
-          Mensaje:
-          <textarea
-            name="mensaje"
-            value={formData.mensaje}
-            onChange={handleChange}
-            required
-          />
-        </label>
+          <label>
+            Mensaje:
+            <textarea
+              name="mensaje"
+              value={formData.mensaje}
+              onChange={handleChange}
+              required
+            />
+          </label>
 
-        <div className="captcha-container">
-          <label htmlFor="captcha">No soy un Robot</label>
-          <input
-            type="checkbox"
-            id="captcha"
-            name="captcha"
-            checked={formData.captcha}
-            onChange={handleChange}
-            required
-          />
-        </div>
+          <div className="captcha-container">
+            <label htmlFor="captcha">No soy un Robot</label>
+            <input
+              type="checkbox"
+              id="captcha"
+              name="captcha"
+              checked={formData.captcha}
+              onChange={handleChange}
+              required
+            />
+          </div>
 
-        <button type="submit">Enviar</button>
-      </form>
+          <button type="submit">Enviar</button>
+        </form>
+      </div>
     </div>
   );
 }

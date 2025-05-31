@@ -10,12 +10,16 @@ function Header() {
     setMenuOpen(!menuOpen);
   };
 
-  // Scroll suave y cierre del menú al hacer clic
   const handleScroll = (id) => {
     const section = document.getElementById(id);
     if (section) {
       section.scrollIntoView({ behavior: 'smooth' });
     }
+    setMenuOpen(false);
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     setMenuOpen(false);
   };
 
@@ -40,11 +44,15 @@ function Header() {
           >
             <div className={`hamburger ${menuOpen ? 'active' : ''}`}></div>
           </button>
-          <img src={logo} alt="Logo Antigüedades Sthandier" className="logo" />
-          <h1>
-            <span className="antiguedades">Antigüedades</span>{" "}
-            <span className="sthandier">Sthandier</span>
-          </h1>
+
+          {/* Contenedor del logo + nombre con scrollToTop */}
+          <div className="logo-clickable" onClick={scrollToTop} style={{ cursor: 'pointer' }}>
+            <img src={logo} alt="Logo Antigüedades Sthandier" className="logo" />
+            <h1>
+              <span className="antiguedades">Antigüedades</span>{" "}
+              <span className="sthandier">Sthandier</span>
+            </h1>
+          </div>
         </div>
 
         <nav className={`nav ${menuOpen ? 'open' : ''}`}>
@@ -87,14 +95,13 @@ function Header() {
             </li>
             <li className="nav-item">
               <button
-              className="nav-link"
-              onClick={() => handleScroll('contacto')}
-             style={{ background: 'none', border: 'none', cursor: 'pointer' }}
-  >
-           Contáctanos
-          </button>
+                className="nav-link"
+                onClick={() => handleScroll('contacto')}
+                style={{ background: 'none', border: 'none', cursor: 'pointer' }}
+              >
+                Contáctanos
+              </button>
             </li>
-
           </ul>
         </nav>
       </div>
