@@ -1,30 +1,30 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './ContactForm.css';
 
-function ContactForm({ selectedProduct = '' }) {
+function ContactForm({ selectedProduct, products }) {
   const [formData, setFormData] = useState({
     nombre: '',
     email: '',
     producto: '',
     mensaje: '',
-    captcha: false 
+    captcha: false,
   });
 
   useEffect(() => {
     if (selectedProduct) {
-      setFormData((prev) => ({
+      setFormData(prev => ({
         ...prev,
-        producto: selectedProduct
+        producto: selectedProduct,
       }));
     }
   }, [selectedProduct]);
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
-    setFormData({
-      ...formData,
-      [name]: type === 'checkbox' ? checked : value
-    });
+    setFormData(prev => ({
+      ...prev,
+      [name]: type === 'checkbox' ? checked : value,
+    }));
   };
 
   const handleSubmit = (e) => {
@@ -37,12 +37,13 @@ function ContactForm({ selectedProduct = '' }) {
 
     console.log('Datos enviados:', formData);
     alert('Mensaje enviado correctamente');
+
     setFormData({
       nombre: '',
       email: '',
-      producto: '',
+      producto: formData.producto, // Mantener producto seleccionado
       mensaje: '',
-      captcha: false
+      captcha: false,
     });
   };
 
@@ -81,10 +82,11 @@ function ContactForm({ selectedProduct = '' }) {
             required
           >
             <option value="">-- Selecciona un producto --</option>
-            <option value="Accesorios">Accesorios</option>
-            <option value="Manteles">Manteles</option>
-            <option value="Juegos de Vajillas">Juegos de Vajillas</option>
-            <option value="Otros">Otros</option>
+            {products && products.length > 0 && products.map(prod => (
+              <option key={prod.id} value={prod.nombre}>
+                {prod.nombre}
+              </option>
+            ))}
           </select>
         </label>
 

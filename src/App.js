@@ -3,26 +3,43 @@ import Header from './components/Header';
 import Banner from './components/Banner';
 import ProductsServices from './components/ProductsServices';
 import AboutUs from './components/AboutUs';
-import ContactForm from './components/ContactForm';
 import Faq from './components/Faq';
-import Footer from './components/Footer';
+import ContactForm from './components/ContactForm';
+import Footer from './components/Footer'; 
 import './App.css';
 
 function App() {
   const [selectedProduct, setSelectedProduct] = useState('');
+  const [productsList, setProductsList] = useState([]);
+
+  // Actualiza producto seleccionado desde tarjetas
+  const handleSelectedProduct = (productName) => {
+    setSelectedProduct(productName);
+  };
+
+  // Recibe lista de productos cargados en ProductsServices
+  const handleProductsLoaded = (products) => {
+    setProductsList(products);
+  };
 
   return (
-    <div>
+    <>
       <Header />
       <Banner />
-      <main>
-        <ProductsServices onSelectProduct={setSelectedProduct} />
+      <div className="App">
+        <ProductsServices 
+          onSelectProduct={handleSelectedProduct} 
+          onProductsLoaded={handleProductsLoaded} 
+        />
         <AboutUs />
         <Faq />
-        <ContactForm selectedProduct={selectedProduct} />
-      </main>
+        <ContactForm 
+          selectedProduct={selectedProduct} 
+          products={productsList} 
+        />
+      </div>
       <Footer />
-    </div>
+    </>
   );
 }
 
