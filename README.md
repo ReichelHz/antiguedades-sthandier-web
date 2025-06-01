@@ -1,70 +1,53 @@
-# Getting Started with Create React App
+# Antigüedades Sthandier - Sitio Web Informativo
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Descripción
 
-## Available Scripts
+Este proyecto corresponde al desarrollo de un sitio web informativo para el emprendimiento **Antigüedades Sthandier**, como parte de la Evaluación Sumativa de la Unidad III de la asignatura Desarrollo Frontend.  
+El objetivo es fortalecer la presencia digital del negocio dedicado a la venta de objetos antiguos, ofreciendo una plataforma moderna, accesible y visualmente atractiva donde los usuarios pueden conocer los productos y servicios de forma clara y eficiente.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## Tecnologías Utilizadas
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **React.js** (creado con Vite)
+- CSS modularizado para cada componente
+- Librería **Swiper** para el carrusel de productos
+- Consumo de APIs REST para contenido dinámico
+- Uso de **react-icons** para íconos sociales
+- Diseño responsivo y buenas prácticas de accesibilidad
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## Funcionalidades Principales
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Navegación SPA** con secciones: Quiénes Somos, Preguntas Frecuentes y Contacto.
+- **Carrusel de productos** con navegación táctil y paginación accesible.
+- **Carga dinámica de contenido** (productos, historia, FAQ) desde APIs externas.
+- **Formulario de contacto** con validación, selección dinámica del producto consultado y captcha simple.
+- **Diseño responsivo** para dispositivos móviles y escritorio.
+- **Manejo de estados globales** para comunicación entre componentes (productos y formulario).
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Estructura del Proyecto
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- `App.jsx`: Componente raíz que maneja estados globales y organiza secciones.
+- `Header.jsx`: Encabezado fijo con navegación interna.
+- `Banner.jsx`: Imagen de presentación con mensaje destacado.
+- `ProductsServices.jsx`: Obtiene y muestra productos desde API.
+- `ProductCard.jsx`: Tarjeta individual de producto con opción de selección.
+- `ProductCarousel.jsx`: Carrusel visual de productos usando Swiper.
+- `AboutUs.jsx`: Sección “Quiénes Somos” con contenido dinámico.
+- `Faq.jsx`: Preguntas frecuentes cargadas desde API.
+- `ContactForm.jsx`: Formulario de contacto con validación y selección dinámica.
+- `Footer.jsx`: Pie de página con información de contacto y redes sociales.
+- Archivos CSS asociados para cada componente.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## Instalación y Ejecución
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. Clonar el repositorio:
+   ```bash
+   git clone <URL-del-repositorio>
+   cd antiguedades-sthandier
